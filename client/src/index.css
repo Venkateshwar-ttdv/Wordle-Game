@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+#root {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  font-family: 'Poppins', sans-serif;
+  margin : 0px;
+  padding: 0px;
+  text-align: center;
+}
+
+.main-heading {
+  font-size: 1.7rem;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.App {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.row > div {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #bbb;
+  margin: 4px;
+  text-align: center;
+  line-height: 40px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.row >div.green {
+  --background: #5ac85a;
+  --border-color: #5ac85a;
+  animation: flip 0.5s ease forwards;
+}
+
+.row > div.grey {
+  --background : #a1a1a1;
+  --border-color: #a1a1a1;
+  animation: flip 0.6s ease forwards;
+}
+
+.row >div.yellow {
+  --background: #e2cc68;
+  --border-color: #e2cc68;
+  animation: flip 0.5s ease forwards;
+}
+
+.row > div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.row > div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.row > div:nth-child(4) {
+  animation-delay: 0.6s;
+}
+.row > div:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+.row.current > div.filled {
+  animation : bounce 0.2s ease-in-out forwards;
+}
+
+
+.keypad {
+  max-width: 500px;
+  margin : 20px auto;
+}
+
+.keypad > div {
+  margin: 5px;
+  width : 40px;
+  height: 40px;
+  background: #eee;
+  display: inline-block;
+  border-radius: 6px;
+  line-height: 40px;
+}
+
+.keypad > div.green {
+  background: #5ac85a;
+  color: #fff;
+  transition: all 0.3s ease-in;
+}
+
+.keypad > div.yellow {
+  background: #e2cc68;
+  color: #fff;
+  transition: all 0.3s ease-in;
+}
+
+.keypad > div.grey {
+  background: #a1a1a1;
+  color: #fff;
+  transition: all 0.3s ease-in;
+}
+
+@keyframes bounce {
+  0% { 
+    transform: scale(1);
+    border-color: #ddd;
+  }
+  50% { 
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    border-color: #333;
+  }
+}
+
+
+@keyframes flip {
+  0% {
+    transform: rotateX(0);
+    background: #fff;
+    border-color: #333;
+  }
+
+  45% {
+    transform: rotateX(90deg);
+    background: white;
+    border-color: #333;
+  }
+
+  55% {
+    transform: rotateX(90deg);
+    background: var(--background);
+    border-color: var(--border-color);
+  }
+  100% {
+    transform: rotateX(0deg);
+    background:var(--background);
+    border-color: var(--border-color);
+    color : #eee;
+  } 
+}
+
+.current-word {
+  color: blue;
+  text-transform: uppercase;
+}
+
+.refresh {
+  border : none;
+  outline: none;
+  height: auto;
+  width : auto;
+  background-color: black;
+  color : white;
+  padding: 4px 16px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: 0.4s;
+}
+
+.refresh:hover {
+  border-radius: 1rem;
+}
+
+@media screen and (max-width : 600px) {
+  .row > div {
+      width : 30px;
+      height : 30px;
+      line-height: 30px;
+      font-size: 1.4rem;
+      font-weight: bold;
+  }
+   
+  .keypad {
+    max-width: 260px;
+  }
+
+  .keypad > div {
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+  }
+}
